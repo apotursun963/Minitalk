@@ -1,7 +1,7 @@
 
 # Client Ve Server İlişkisi Nedir ?
 ------------------------------------
-client ve server ilişkisi temelde client'in yolladığı istekler (request) ve sunucunun bu isteklere karşı verdiği yanıtlardan (response) oluşur.
+`Client` ve `Server` ilişkisi temelde client'in yolladığı istekler (**request**) ve sunucunun bu isteklere karşı verdiği yanıtlardan (**response**) oluşur.
 
 ## Client (İstemci):
 Client, bir sistemde sunucuyla iletişim kurarak veri talep eden ve bu veriyi işleyip kullanıcıya sunan bir yapıdır. Kullanıcı tarafından gerçekleştirilen işlemleri sunucuya ileterek  iletişim sağlar ve sunucudan aldığı yanıtları kullanıcıya anlamlı bir şekilde iletir. yani kullanıcı ve server arasında **köprü** görevi görür.
@@ -26,3 +26,5 @@ Server, istemcilerden gelen talebleri kabul eden, bu istekleri işleyen ve gerek
 
 - **İstemciye Yanıt göndreme (response)**:
     - Server, işlenen isteğin sonucunu istemciye yanıt olarak gönderir. Örnek yanıtlar: HTML, JSON
+
+![Client-Server](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Client-server-model.svg/1200px-Client-server-model.svg.png)

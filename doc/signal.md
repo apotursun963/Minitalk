@@ -25,3 +25,5 @@ Süreci durdurmak, sonlandırmak veya hata durumu oluştuğunda bir sinyal gönd
 
 - **Özel Kullanıcı Sinyalleri**:
     - SIGUSR1, SIGUSR2: Kullanıcı tarafından tanımlanan özel amaçlar için kullanılır.
+
+Daha fazla sinyal türleri için >> [Signal-Types](https://www.math.stonybrook.edu/~ccc/dfc/dfc/signals.html)
