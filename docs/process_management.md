@@ -14,7 +14,7 @@ yani, Süreç Bir işletim sisteminde aktif olarak çalışan bir program.
         - Yığın (Stack): Fonksiyon çağrıları ve yerel değişkenler için kullanılır.
         - Küme (Heap): Dinamik bellek tahsisi burada gerçekleşir.
 
-- **Ebeveyn-Çocuk İlişkisi (Parent - Child)**:
+- **Ebeveyn - Çocuk İlişkisi (Parent - Child)**:
     - Bir süreç başka bir süreci başlatabilir. yeni başlatılan süreç **çocuk süreç** olarak adlandırılır. ve başlatan süreç **ebeveyn süreç**'tir. 
 
         - Ebeveyn Süreç (Parent Process): Ebeveyn süreç, bir işletim sisteminde başka bir süreç (çocuk süreç) oluşturan süreçtir. Ebeveyn süreç, çocuk sürecin başlatılmasından `fork` ve yönetiminden sorumlu olup, aynı zamanda kendi görevlerini de yerine getirebilir. Ebeveyn süreç, `wait` çağrılarını kullanarak çocuk sürecin tamamlanmasını bekler. ve gerektiğinde çocuk süreci durdurabilir veya tamamen sonlandırabilir. `kill`
