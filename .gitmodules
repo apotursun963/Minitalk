@@ -4,3 +4,6 @@
 [submodule "libs/Libft"]
 	path = libs/Libft
 	url = https://github.com/apotursun963/Libft.git
+[submodule "libs/ft_printf"]
+	path = libs/ft_printf
+	url = https://github.com/apotursun963/ft_printf.git
