@@ -1,17 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minitalk.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: atursun <atursun@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/15 14:17:31 by atursun           #+#    #+#             */
+/*   Updated: 2024/12/15 15:27:45 by atursun          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef MINITALK_H
-#define MINITALK_H
+# define MINITALK_H
 
-#include <stdio.h>      // gereksiz kütüphaneleri sil
-#include <signal.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <sys/types.h>
-
-
-int     ft_strlen(char *str);
-int	    ft_atoi(char *str, int base);
-char    *get_binary(int chr);
-
+# include <signal.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <sys/types.h>
 
 #endif
