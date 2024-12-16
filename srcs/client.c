@@ -13,6 +13,16 @@
 #include "../inc/minitalk.h"
 # include <stdlib.h>
 
+static int	ft_strlen(char *str)
+{
+	int counter;
+
+	counter = 0;
+	while (*str)
+		counter++;
+	return (counter);
+}
+
 static unsigned char	*get_binary(int chr)
 {
 	unsigned char	*binary;
@@ -57,9 +67,7 @@ static int	send_signal(pid_t process_id, char *message)
 	int					len;
 	int					is_recieved;
 
-	len = 0;
-	while (message[len])
-		len++;
+	len = ft_strlen(message);
 	message[len] = '\n';
 	message[len + 1] = '\0';
 	is_recieved = -1;
