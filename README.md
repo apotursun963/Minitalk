@@ -1,7 +1,7 @@
 Minitalk
 --------
 
-Amacı:
+_Amacı_:
 Bu proje, UNIX sinyallerini kullanarak bir istemci (client) ve sunucu (server) arasında veri alışverişini gerçekleştiren bir program geliştirmeyi amaçlar.
 
 Nasıl Çalışır:

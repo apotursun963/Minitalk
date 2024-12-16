@@ -1,4 +1,7 @@
 
+# Makefile Nedir ?
+
+
 # Program Derleme ve Çalıştırma zamanalrı
 ---
 

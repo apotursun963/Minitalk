@@ -11,16 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/minitalk.h"
-
-static int	ft_strlen(char *str)
-{
-	int	counter;
-
-	counter = 0;
-	while (*str++)
-		counter++;
-	return (counter);
-}
+# include <stdlib.h>
 
 static unsigned char	*get_binary(int chr)
 {
@@ -59,15 +50,19 @@ static int	ft_atoi_10(char *str)
 	return (result * sign);
 }
 
-static void	send_signal(pid_t process_id, char *message)
+static int	send_signal(pid_t process_id, char *message)
 {
 	unsigned char		*binary_str;
 	int					i;
 	int					len;
+	int					is_recieved;
 
-	len = ft_strlen(message);
+	len = 0;
+	while (message[len])
+		len++;
 	message[len] = '\n';
 	message[len + 1] = '\0';
+	is_recieved = -1;
 	while (*message)
 	{
 		i = 0;
@@ -75,15 +70,22 @@ static void	send_signal(pid_t process_id, char *message)
 		while (i < 8)
 		{
 			if (binary_str[i] == '1')
+			{
 				kill(process_id, SIGUSR1);
+				is_recieved = 1;
+			}
 			else
+			{
 				kill(process_id, SIGUSR2);
-			usleep(250);
+				is_recieved = 1;
+			}
+			usleep(500);
 			i++;
 		}
 		free(binary_str);
 		message++;
 	}
+	return (is_recieved);
 }
 
 int	main(int argc, char **argv)
@@ -98,6 +100,7 @@ int	main(int argc, char **argv)
 	}
 	message = argv[2];
 	process_id = ft_atoi_10(argv[1]);
-	send_signal(process_id, message);
+	if (send_signal(process_id, message) != -1)
+		write(1, "\033[1;32mMessage Received!👌\n", 29);
 	return (0);
 }
