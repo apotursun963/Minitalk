@@ -6,7 +6,7 @@
 /*   By: atursun <atursun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 12:54:07 by atursun           #+#    #+#             */
-/*   Updated: 2024/12/15 18:08:14 by atursun          ###   ########.fr       */
+/*   Updated: 2024/12/17 14:22:57 by atursun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_putpid(int number)
 	write(1, &chr, 1);
 }
 
-static int	ft_atoi_2(char *str)
+static int	ft_atoi_2(unsigned char *str)
 {
 	int	result;
 	int	sign;
@@ -45,7 +45,7 @@ static int	ft_atoi_2(char *str)
 static void	take_signal(int signal)
 {
 	static unsigned char	byte[9];
-	static int				bits = 0;
+	static int				bits;
 	char					chr;
 
 	if (signal == SIGUSR1)
@@ -56,7 +56,7 @@ static void	take_signal(int signal)
 	if (bits == 8)
 	{
 		byte[8] = '\0';
-		chr = ft_atoi_2((char *)byte);
+		chr = ft_atoi_2(byte);
 		write(1, &chr, 1);
 		bits = 0;
 	}

@@ -6,19 +6,19 @@
 /*   By: atursun <atursun@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 12:54:00 by atursun           #+#    #+#             */
-/*   Updated: 2024/12/15 18:03:04 by atursun          ###   ########.fr       */
+/*   Updated: 2024/12/17 14:18:54 by atursun          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minitalk.h"
-# include <stdlib.h>
+#include <stdlib.h>
 
 static int	ft_strlen(char *str)
 {
-	int counter;
+	int	counter;
 
 	counter = 0;
-	while (*str)
+	while (*str++)
 		counter++;
 	return (counter);
 }
@@ -60,17 +60,15 @@ static int	ft_atoi_10(char *str)
 	return (result * sign);
 }
 
-static int	send_signal(pid_t process_id, char *message)
+static void	send_signal(pid_t process_id, char *message)
 {
 	unsigned char		*binary_str;
-	int					i;
 	int					len;
-	int					is_recieved;
+	int					i;
 
 	len = ft_strlen(message);
 	message[len] = '\n';
 	message[len + 1] = '\0';
-	is_recieved = -1;
 	while (*message)
 	{
 		i = 0;
@@ -78,22 +76,15 @@ static int	send_signal(pid_t process_id, char *message)
 		while (i < 8)
 		{
 			if (binary_str[i] == '1')
-			{
 				kill(process_id, SIGUSR1);
-				is_recieved = 1;
-			}
 			else
-			{
 				kill(process_id, SIGUSR2);
-				is_recieved = 1;
-			}
-			usleep(500);
+			usleep(200);
 			i++;
 		}
 		free(binary_str);
 		message++;
 	}
-	return (is_recieved);
 }
 
 int	main(int argc, char **argv)
@@ -108,7 +99,7 @@ int	main(int argc, char **argv)
 	}
 	message = argv[2];
 	process_id = ft_atoi_10(argv[1]);
-	if (send_signal(process_id, message) != -1)
-		write(1, "\033[1;32mMessage Received!👌\n", 29);
+	send_signal(process_id, message);
+	write(1, "\033[1;32mMessage Received!👌\n", 29);
 	return (0);
 }
